@@ -10,3 +10,4 @@ This shader adds guidelines when making a selection with [slop](https://github.c
 # todo
 - disable guides when selecting
 - draw marching ants on selection box
+- disable selection cursor

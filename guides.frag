@@ -9,7 +9,7 @@ uniform vec2 mouse;
 varying vec2 uvCoord;
 
 // configurables
-uniform vec4 colours[] = {
+uniform vec4 colours[2] = {
     vec4(1, 1, 1, 1),
     vec4(0.375, 0.375, 0.375, 1)
 };
@@ -20,7 +20,7 @@ int mod_i(float n, int m) {
 }
 
 vec4 get_ant_colour(float n) {
-    return colours[mod_i(n / ant_size, colours.length())];
+    return colours[mod_i(n / ant_size, 2)];
 }
 
 vec4 checkerboard(vec2 p) {

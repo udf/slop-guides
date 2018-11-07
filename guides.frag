@@ -11,7 +11,7 @@ varying vec2 uvCoord;
 // configurables
 uniform vec4 colours[] = {
     vec4(1, 1, 1, 1),
-    vec4(0.235, 0.235, 0.235, 1)
+    vec4(0.375, 0.375, 0.375, 1)
 };
 uniform float ant_size = 2;
 

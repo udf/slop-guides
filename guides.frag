@@ -1,19 +1,17 @@
 #version 130
 
-uniform sampler2D desktop;
-uniform sampler2D texture;
-
-uniform vec2 screenSize;
-uniform vec2 mouse;
-
-varying vec2 uvCoord;
-
 // configurables
 uniform vec4 colours[2] = {
     vec4(1, 1, 1, 1),
     vec4(0.375, 0.375, 0.375, 1)
 };
 uniform float ant_size = 2;
+
+uniform sampler2D texture;
+uniform vec2 screenSize;
+uniform vec2 mouse;
+
+varying vec2 uvCoord;
 
 int mod_i(float n, int m) {
     return int(mod(int(n), m));

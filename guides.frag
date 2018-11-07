@@ -1,4 +1,4 @@
-#version 120
+#version 130
 
 uniform sampler2D desktop;
 uniform sampler2D texture;
@@ -15,8 +15,16 @@ uniform vec4 colours[] = {
 };
 uniform float ant_size = 2;
 
+int mod_i(float n, int m) {
+    return int(mod(int(n), m));
+}
+
 vec4 get_ant_colour(float n) {
-    return colours[int(mod(int(n / ant_size), colours.length()))];
+    return colours[mod_i(n / ant_size, colours.length())];
+}
+
+vec4 checkerboard(vec2 p) {
+    return colours[mod_i(p.x, 2) ^ mod_i(p.y, 2)];
 }
 
 void main() {
@@ -25,11 +33,11 @@ void main() {
     // uv coordinates in screen space
     vec2 screenUV = uv * screenSize;
 
-    vec4 colour = texture2D(texture, uvCoord);
-    if (screenUV.x > mouse.x && screenUV.x < mouse.x + 1) {
+    vec4 colour = texture2D(texture, uvCoord) * checkerboard(screenUV / ant_size);
+    if (screenUV.x > mouse.x && screenUV.x <= mouse.x + 1) {
         colour = get_ant_colour(screenUV.y);
     }
-    if (screenUV.y > mouse.y && screenUV.y < mouse.y + 1) {
+    if (screenUV.y > mouse.y && screenUV.y <= mouse.y + 1) {
         colour = get_ant_colour(screenUV.x);
     }
     gl_FragColor = colour;

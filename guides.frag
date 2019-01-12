@@ -1,11 +1,13 @@
 #version 130
 
-// inputs
+// inputs/outputs
 uniform sampler2D texture;
 uniform vec2 screenSize;
 uniform vec2 mouse;
 
 in vec2 uvCoord;
+
+out vec4 outColour;
 
 // configurables
 uniform vec4 colours[2] = {
@@ -39,5 +41,5 @@ void main() {
     if (screenUV.y > mouse.y && screenUV.y <= mouse.y + 1) {
         colour = get_ant_colour(screenUV.x);
     }
-    gl_FragColor = colour;
+    outColour = colour;
 }

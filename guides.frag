@@ -11,7 +11,7 @@ uniform sampler2D texture;
 uniform vec2 screenSize;
 uniform vec2 mouse;
 
-varying vec2 uvCoord;
+in vec2 uvCoord;
 
 int mod_i(float n, int m) {
     return int(mod(int(n), m));

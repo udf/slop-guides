@@ -1,9 +1,9 @@
-#version 120
+#version 130
 
-attribute vec2 position;
-attribute vec2 uv;
+in vec2 position;
+in vec2 uv;
 
-varying vec2 uvCoord;
+out vec2 uvCoord;
 
 void main()
 {

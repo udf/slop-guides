@@ -10,11 +10,11 @@ in vec2 uvCoord;
 out vec4 outColour;
 
 // configurables
-const uniform vec4 colours[2] = {
+uniform vec4 colours[2] = vec4[2](
     vec4(1, 1, 1, 1),
     vec4(0.375, 0.375, 0.375, 1)
-};
-const uniform float ant_size = 2;
+);
+uniform float ant_size = 2;
 
 int mod_i(float n, int m) {
     return int(mod(int(n), m));
